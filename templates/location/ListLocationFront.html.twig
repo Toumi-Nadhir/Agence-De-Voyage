@@ -1,0 +1,78 @@
+{% extends 'base3.html.twig' %}
+
+{% block body %}
+
+<div class="home" >
+
+
+    <div class="container">
+
+
+        <div class="row" style="display: flex;justify-content: center;align-items: center">
+
+            <div class="col-md-5">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                 <center style="width: 100%">
+                     <a href="{{ path('add_location') }}">
+                         <i class="fa fa-arrow-circle-left" style="font-size: 25px; color:black;"></i>
+
+                     </a>
+
+                     <h1 style="font-size: 20px;color:black">                    Liste de Locations
+                     </h1>
+                </center>
+
+                    {% for location in Locations %}
+
+                   <div class="intro_content "style="background-color: white;border: 1px solid #026fcc">
+                       <div class="row">
+                           <div class="card-box" >
+                               <div class="card-body">
+                                   <div class="card-title">
+                                     <span style="color:black">
+                                          Location numero
+                                     </span> : {{ location.id }} <br/>
+                                       voiture model: <strong style="color:mediumseagreen;font-size: 15px;">
+                                           {{ location.voiture.model }}
+                                       </strong>
+
+                                   </div>
+                                   <p class="intro_text">
+                                                                            <span style="color:black">
+                                                                                Date debut location</span> : {{ location.date_debut | date }}
+                                   </p>
+                                   <p class="intro_text">
+                                                                            <span style="color:black">
+                                                                                Date Fin location</span> : {{ location.date_fin | date }}
+                                   </p>
+                                   <p>
+                                       <img src="{{ asset ('uploads/' ~ location.voiture.image) }}" alt=""height="250px" width="250px">
+                                   </p>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <hr/>
+                {% endfor %}
+                <ul class="pages">
+                    {{ knp_pagination_render(Locations) }}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

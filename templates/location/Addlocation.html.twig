@@ -1,0 +1,49 @@
+{% extends "base3.html.twig" %}
+{%block body%}
+
+        <div class="home">
+            <br>
+            <br>
+            <br> <br>
+
+            <br> <br>
+
+           <div class="container"
+                >
+               <div class="row" style="display: flex;justify-content: center;align-items: center">
+                     <div class="col-lg-7">
+                       <div class="contact_form_container">
+                           <div class="contact_title">Ajouter Location</div>
+                           {{ form_start(f, {'attr': {'class': ''}}) }}
+                           {{ form_start(f, {attr: {novalidate: 'novalidate'}}) }}
+
+                              <div class="form-group">
+                                  <label style="color:white">Date Debut</label>
+                                  {{ form_widget(f.date_debut, {'attr': {'class': 'form-control'}}) }}
+                                  {{ form_errors(f.date_debut, {'attr': {'class': 'text-danger'}}) }}
+
+                              </div>
+
+                           <div class="form-group">
+                               <label style="color:white">Date Fin</label>
+                               {{ form_widget(f.date_fin, {'attr': {'class': 'form-control'}}) }}
+                               {{ form_errors(f.date_fin, {'attr': {'class': 'text-danger'}}) }}
+
+                           </div>
+                           <div class="form-group">
+                               <label style="color:white">Voiture</label>
+                               {{ form_widget(f.voiture, {'attr': {'class': 'form-control'}}) }}
+                           </div>
+                           <div style="display: flex;align-items: center;justify-content: center">
+                               {{ form_widget(f.Submit,{'attr':{'class':'form_submit_button'}}) }}
+
+                           </div>
+                           {{ form_end(f) }}
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+
+    </div>
+{%endblock%}

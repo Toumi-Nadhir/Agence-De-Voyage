@@ -1,0 +1,105 @@
+{% extends "base.html.twig" %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>User index</h1>
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container-fluid">
+
+
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+                        <h4 class="m-t-0 header-title">List Des Admin</h4>
+                        <p class="text-muted font-14 m-b-20">
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="{{ path('user_new') }}">
+                                        <button type="button" class="btn btn-purple btn-rounded w-md waves-effect waves-light m-b-5">Ajouter User</button>                            </p>
+                                    </a>
+
+                                </td>
+                                <td>
+
+                                <td>  &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp    &nbsp&nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp  &nbsp  </td>
+                                <td>
+                                    <a href="{{ path('home') }}">
+                                        <button type="button" class="btn btn-purple btn-rounded w-md waves-effect waves-light m-b-5">home page</button>                            </p>
+
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Fname</th>
+                <th>Gender</th>
+                <th>Num</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Confirmpassword</th>
+                <th>Birthday</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.fname }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.num }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.confirmpassword }}</td>
+                <td>{{ user.birthday ? user.birthday|date('Y-m-d') : '' }}</td>
+                <td>
+                    <img src="{{ asset ('uploads/' ~ user.image) }}" alt=""height="80px" width="80px">
+                </td>
+                <td>
+                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <a href="{{ path('user_new') }}">Create new</a>
+{% endblock %}

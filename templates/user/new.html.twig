@@ -1,0 +1,26 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+
+<div class="home">
+    <br>
+    <br>
+
+    <div >
+        <div class="row" style="display: flex;justify-content: center;align-items: center">
+            <div class="col-lg-7">
+                <div >
+                    <div class="form-group">
+                     <h1>Create new User</h1>
+                        {{ include('user/_form.html.twig') }}
+                     <a href="{{ path('user_index') }}">back to list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

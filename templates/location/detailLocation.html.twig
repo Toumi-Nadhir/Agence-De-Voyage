@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+
+                <div class="row">
+                    <a href="{{ path('location_list') }}">
+                        <i class="fa fa-arrow-circle-left" style="font-size: 30px;"></i>
+
+                    </a>
+
+                </div>
+                <div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="card m-b-20">
+                           <div class="card-body">
+                                <h4 class="card-title"> location numero : <span style="color:#ff5b5b"> {{id }}</h4>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">date_debut: <span style="color:#ff5b5b"> {{ date_debut|date('d-m-Y H:i') }}</span> </li>
+                                <li class="list-group-item">date_fin : <span style="color:#ff5b5b"> {{ date_fin|date('d-m-Y H:i') }}</li>
+                                <li class="list-group-item">id_voiture : <span style="color:#ff5b5b"> {{ voiture.id }}</li>
+
+
+                            </ul>
+                            {#                            <div class="card-body">#}
+                            {#                                <a href="#" class="card-link">Card link</a>#}
+                            {#                                <a href="#" class="card-link">Another link</a>#}
+                            {#                            </div>#}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
